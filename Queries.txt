@@ -1,0 +1,19 @@
+USE demo;
+
+SELECT * FROM attrition;
+
+-- Overall attrition in the organisation
+SELECT COUNT(*) as total_employees, 
+	count(case when attrition = "Yes" then 1 end) as attrition_count
+FROM attrition;
+
+
+-- Realtionship between Attrition and Overtime 
+-- Impact of overtime in attrition
+-- Presence of overtime in attrition
+SELECT overtime, COUNT(*) as total_employees
+FROM attrition
+WHERE attrition = 'Yes'
+GROUP BY overtime; 
+
+
