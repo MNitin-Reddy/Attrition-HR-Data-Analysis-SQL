@@ -17,3 +17,20 @@ WHERE attrition = 'Yes'
 GROUP BY overtime; 
 
 
+-- Presence of relation between rating and attrition
+select 
+performancerating, COUNT(*) as total_employees
+FROM attrition
+WHERE attrition ="Yes"
+GROUP BY performancerating;
+
+
+-- Presence of salary hike and attrition
+select 
+percentsalaryhike, COUNT(*) as total_employees
+FROM attrition
+WHERE attrition ="Yes"
+GROUP BY percentsalaryhike
+ORDER BY total_employees DESC;
+
+
