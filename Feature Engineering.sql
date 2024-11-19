@@ -53,3 +53,12 @@ SET month_name = DATENAME(MONTH, date);
 
 SELECT * FROM sales;
 
+
+-- Updating total column form varchar to numeric
+SELECT *
+FROM sales
+WHERE ISNUMERIC(total) = 0;
+-- No invalid values
+
+ALTER TABLE sales
+ALTER COLUMN total FLOAT;
