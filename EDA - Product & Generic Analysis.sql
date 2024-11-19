@@ -42,30 +42,30 @@ FROM sales GROUP BY city ORDER BY total_revenue DESC OFFSET 0 ROWS FETCH NEXT 1 
 -- Naypyitaw
 
 -- 8.Which product line incurred the highest VAT?
-SELECT TOP 1 "Product line", SUM("Tax 5%") as VAT 
+SELECT TOP 1 "Product line", SUM(("Unit price" * Quantity * 0.05)) as VAT 
 FROM sales GROUP BY "Product line" ORDER BY VAT DESC;
-
-SELECT "Tax 5%" FROM sales;
+-- food beverages - 2673.564
 
 -- 9.Retrieve each product line and add a column product_category, indicating 'Good' or 'Bad,'based on whether its sales are above the average.
 
-ALTER TABLE sales ADD COLUMN product_category VARCHAR(20);
+ALTER TABLE sales ADD product_category VARCHAR(20);
 
 UPDATE sales 
 SET product_category= 
 (CASE 
-	WHEN total >= (SELECT AVG(total) FROM sales) THEN "Good"
-    ELSE "Bad"
+	WHEN total >= (SELECT AVG(total) FROM sales) THEN 'Good'
+    ELSE 'Bad'
 END)FROM sales;
 
 -- 10.Which branch sold more products than average product sold?
-SELECT branch, SUM(quantity) AS quantity
-FROM sales GROUP BY branch HAVING SUM(quantity) > AVG(quantity) ORDER BY quantity DESC LIMIT 1;
+SELECT TOP 1 branch, SUM(quantity) AS quantity
+FROM sales GROUP BY branch HAVING SUM(quantity) > AVG(quantity) ORDER BY quantity DESC;
+-- A 1859
 
 -- 11.What is the most common product line by gender?
 SELECT gender, "Product line", COUNT(gender) total_count
 FROM sales GROUP BY gender, "Product line" ORDER BY total_count DESC;
 
 -- 12.What is the average rating of each product line?
-SELECT "Product line", ROUND(AVG(rating),2) average_rating
+SELECT "Product line", ROUND(AVG(rating),2) AS average_rating
 FROM sales GROUP BY "Product line" ORDER BY average_rating DESC;
