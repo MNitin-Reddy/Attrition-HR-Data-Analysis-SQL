@@ -62,3 +62,34 @@ WHERE ISNUMERIC(total) = 0;
 
 ALTER TABLE sales
 ALTER COLUMN total FLOAT;
+
+-- Updating cogs column from varchar to float
+SELECT * FROM sales WHERE ISNUMERIC(cogs) = 0;
+-- NO invalid vlaues
+
+ALTER TABLE sales
+ALTER COLUMN cogs FLOAT;
+
+ALTER TABLE sales
+ALTER COLUMN "Unit price" FLOAT;
+
+ALTER TABLE sales
+ALTER COLUMN Quantity INT;
+
+ALTER TABLE sales
+ALTER COLUMN "Tax 5%" FLOAT;
+
+ALTER TABLE sales
+ALTER COLUMN "gross margin percentage"   FLOAT;
+
+ALTER TABLE sales
+ALTER COLUMN "gross income" FLOAT;
+
+ALTER TABLE sales
+ALTER COLUMN "Rating" FLOAT;
+
+
+
+
+
+SELECT * FROM sales;
