@@ -1,14 +1,13 @@
 # Super Store Analytics Project
 
 ## Introduction
-This project focuses on analyzing retail sales data spanning multiple branches and cities to uncover patterns in customer behavior, product performance, and revenue trends. Using SQL, we aim to explore key metrics such as branch-wise sales, product line preferences, payment methods, and time-based patterns to derive actionable business insights.
+This project analyses retail sales data spanning multiple branches and cities to uncover patterns in customer behavior, product performance, and revenue trends. Using SQL, we aim to explore key metrics such as branch-wise sales, product line preferences, payment methods, and time-based patterns to derive actionable business insights.
 
 ## Objective
 The objective is to evaluate branch and city performance, identify high-performing product lines, and understand customer preferences based on demographics, payment methods, and time of purchase. These insights will guide data-driven strategies to improve customer satisfaction, optimize product offerings, and maximize revenue.
 
 ## About Data
-This project's data was obtained from the Kaggle Walmart Sales Forecasting Competition and it encompasses sales transactions from three Walmart branches situated in Mandalay, Yangon, and Naypyitaw, respectively.
-The data contains 17 columns and 1000 rows:
+This project's data was obtained from the Kaggle Superstore Sales Forecasting Competition and it encompasses sales transactions from three branches situated in Mandalay, Yangon, and Naypyitaw, respectively.
 | Column            | Description                                   | Data Type        |
 |-------------------|-----------------------------------------------|------------------|
 | invoice_id        | Invoice of the sales made                     | VARCHAR(30)      |
@@ -61,42 +60,62 @@ This will help use generate some new columns from existing ones.
 
 ***3.  Exploratory Data Analysis (EDA)***
 
-Conducting exploratory data analysis is essential to address the project's listed questions and objectives.
+Conducting exploratory data analysis is essential to address the project's questions and objectives.
 
-## Business Questions to Answer
+## **Insights from Analysis**
 
-### Generic Questions
-1.	How many distinct cities are present in the dataset?
-2.	In which city is each branch situated?
+### **1. Generic & Product Analysis**
+#### **Cities and Branches**
+   - The dataset covers **3 cities**: Yangon, Mandalay, Naypyitaw.
+   - Branch locations:
+     - **A**: Yangon  
+     - **B**: Mandalay  
+     - **C**: Naypyitaw
+#### **Product Lines**
+- **6 distinct product lines** are available.
+- **Fashion Accessories** is the most sold product line with 178 sales.
+- **Food and Beverages** generates the highest revenue and incurs the highest VAT.
+#### **Payment Methods**
+- **E-wallet** is the most commonly used payment method (345 transactions).
+#### **Revenue Trends**
+- The highest revenue is recorded in **Naypyitaw**.
+- Revenue by month peaks for a specific month (analysis required for strategic campaigns).
 
-### Product Analysis
-1.	How many distinct product lines are there in the dataset?
-2.	What is the most common payment method?
-3.	What is the most selling product line?
-4.	What is the total revenue by month?
-5.	Which month recorded the highest Cost of Goods Sold (COGS)?
-6.	Which product line generated the highest revenue?
-7.	Which city has the highest revenue?
-8.	Which product line incurred the highest VAT?
-9.	Retrieve each product line and add a column product_category, indicating 'Good' or 'Bad,' based on whether its sales are above the average.
-10.	Which branch sold more products than average product sold?
-11.	What is the most common product line by gender?
-12.	What is the average rating of each product line?
+### **2. Sales Analysis**
+#### **Customer and Revenue Insights**
+- **Members** contribute the most revenue and pay the highest VAT.
+- Members also outnumber normal customers slightly (**501 vs. 499**).
+#### **Time-of-Day and Week Analysis**
+- **Afternoon** sees the highest ratings across branches.
+- Best average ratings are observed on **Mondays**, followed by **Fridays**.
+#### **Branch Performance**
+- **Branch A (Yangon)** sold more products than the average.
+- **Branch B (Mandalay)** receives lower customer ratings compared to A and C.
+#### **Product Performance**
+- **Food and Beverages** leads in revenue and VAT.
+- Product categories marked as "**Good**" contribute above-average revenue.
 
-### Sales Analysis
-1.	Number of sales made in each time of the day per weekday
-2.	Identify the customer type that generates the highest revenue.
-3.	Which city has the largest tax percent/ VAT (Value Added Tax)?
-4.	Which customer type pays the most VAT?
+### **3. Customer Behavior**
+- Gender distribution is nearly balanced (**Female: 501**, **Male: 499**).
+- Gender distribution per branch shows no significant biases.
+- Customers give the best ratings during the **afternoon**.
 
-### Customer Analysis
-1.	How many unique customer types does the data have?
-2.	How many unique payment methods does the data have?
-3.	Which is the most common customer type?
-4.	Which customer type buys the most?
-5.	What is the gender of most of the customers?
-6.	What is the gender distribution per branch?
-7.	Which time of the day do customers give most ratings?
-8.	Which time of the day do customers give most ratings per branch?
-9.	Which day of the week has the best avg ratings?
-10.	Which day of the week has the best average ratings per branch?
+## **Recommendations**
+#### **1. Improve Branch Performance**
+- **Branch B (Mandalay)**: Focus on understanding the reasons behind lower customer ratings (e.g., product availability, customer service issues).
+- Consider targeted training or operational improvements.
+#### **2. Leverage Time-of-Day Insights**
+- Focus promotions or discounts in the **afternoon** to capitalize on higher customer satisfaction.
+- Use customer ratings as a measure of service quality during peak times.
+#### **3. Enhance Product Strategies**
+- **Food and Beverages**: Prioritize its availability, pricing, and promotions, as it leads in revenue.
+- Consider introducing more varieties or bundles for **Fashion Accessories**, as it is the most sold product line.
+#### **4. Engage Members**
+- **Members** contribute the most to revenue and VAT. Develop loyalty programs, targeted offers, and retention strategies to enhance this customer segment.
+#### **5. Optimize City-Wise Strategies**
+- **Naypyitaw** generates the highest revenue; continue focusing marketing efforts there while investigating potential in Mandalay and Yangon to increase branch performance.
+#### **6. Target High-Rating Days**
+- Enhance campaigns and advertising on **Mondays and Fridays**, leveraging customer satisfaction trends.
+#### **7. Payment Method Insights**
+- Encourage using **E-wallets** further by providing cashback or discounts, as it’s already the most preferred payment method.
+
